@@ -1,0 +1,14 @@
+{
+    "Local" : {
+        "SavedRootPath" : "./wallpapers/local/",
+        "LocalPath" : "/AppData/Local/Packages/Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy/LocalState/Assets",
+        "FilesHash" : "./data/LocalStoredFiles.json",
+        "PowerOn" : true
+    },
+    "Web" : {
+        "SavedRootPath" : "./wallpapers/web/",
+        "LocalPath" : "https://cn.bing.com/HPImageArchive.aspx?format=js&idx=${n}&n=1&nc=1361089515117&FORM=HYLH1",
+        "FilesHash" : "./data/WebStoredFiles.json",
+        "PowerOn" : true
+    }
+}
