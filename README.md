@@ -1,13 +1,21 @@
 # BingWallpapers
 微软必应壁纸每日自动获取
-Microsoft Bing Wallpapers Crewler
+
+Bing Wallpapers Crewler
+
 ---
 
 可爱飞行猪（朋友喜欢叫我🚗奥迪哥or宝马哥😂）-Windows系统小工具 :) 
 
 对于Go语言我一直都有关注，但是最近才开始写Go程序，感觉这个编程语言很棒，为了熟悉Go语言的语法，加上我也很喜欢微软必应的壁纸，就是锁屏界面使用的Win10 spotlight的系列非常漂亮，所以就写了这个小东西。我的系统上执行一次程序大概3~4秒多，主要是获取cn.bing.com的网络壁纸消耗的时间多一些，这个我在下个版本将会改进。这个版本没有用到协程goroutine，下个版本会加入协程功能，希望能将执行效率再提高一些。
 
-我的E-Mail📲: <golang83@outlook.com>、<gemarkcg@gmail.com> 🈶🈳💬
+我的E-Mail📲: 
+
+<golang83@outlook.com>
+
+<gemarkcg@gmail.com> 🈶🈳💬
+
+
 
 ## Download MSI 下载安装包☢
 安装包下载：(推荐)
@@ -84,29 +92,4 @@ schtasks /create /tn "必应壁纸自动获取A" /tr %BW% /sc daily /st 14:00:00
 ```
 %windir%\system32\taskschd.msc /s
 ```
-![avatar](https://github.com/gemark/bingwallpapers/blob/DocScreenShot/doc_screenshot/doc00.png)
-
-## 下面是“任务计划程序”的创建/修改步骤：
-![avatar](https://github.com/gemark/bingwallpapers/blob/DocScreenShot/doc_screenshot/doc01.png)
-
-![avatar](https://github.com/gemark/bingwallpapers/blob/DocScreenShot/doc_screenshot/doc02.png)
-
-![avatar](https://github.com/gemark/bingwallpapers/blob/DocScreenShot/doc_screenshot/doc03.png)
-
-![avatar](https://github.com/gemark/bingwallpapers/blob/DocScreenShot/doc_screenshot/doc04.png)
-
-![avatar](https://github.com/gemark/bingwallpapers/blob/DocScreenShot/doc_screenshot/doc05.png)
-
-![avatar](https://github.com/gemark/bingwallpapers/blob/DocScreenShot/doc_screenshot/doc06.png)
-
-![avatar](https://github.com/gemark/bingwallpapers/blob/DocScreenShot/doc_screenshot/doc07.png)
-
-![avatar](https://github.com/gemark/bingwallpapers/blob/DocScreenShot/doc_screenshot/doc08.png)
-
-![avatar](https://github.com/gemark/bingwallpapers/blob/DocScreenShot/doc_screenshot/doc09.png)
-
-![avatar](https://github.com/gemark/bingwallpapers/blob/DocScreenShot/doc_screenshot/doc10.png)
-
-![avatar](https://github.com/gemark/bingwallpapers/blob/DocScreenShot/doc_screenshot/doc11.png)
-
-![avatar](https://github.com/gemark/bingwallpapers/blob/DocScreenShot/doc_screenshot/doc12.png)
+关于“任务计划程序”的指引：[Windows任务计划程序](https://blog.csdn.net/GeMarK/article/details/90143616)
