@@ -12,11 +12,13 @@ Microsoft Bing Wallpapers Crewler
 ## Download MSI 下载安装包☢
 安装包下载：
 [BingWallpapersSetup.exe](https://github.com/gemark/bingwallpapers/releases/download/v0.1.0/BingWallpapersSetup.exe) 
+
 安装请不要选择“安装到所有用户”
 安装需要注意，如果选择“安装到所有用户”，安装目录是C:\\Program Files(x86)\... 那么安装后，需要到安装目录去对BingWallpapers.exe程序文件修改属性，鼠标在文件上右键，点属性，然后“兼容性”选项卡，点击“更改所有用户设置”，勾选“以管理员身份运行此程序”，然后确定。否则无法正常运行。
 
 Zip打包下载：(推荐)
 [BingWallpapers_v1.0.zip](https://github.com/gemark/bingwallpapers/releases/download/v0.1.0/BingWallpapers_v1.0.zip)
+
 仅使用的话，建议下载Zip包直接使用程序。
 
 ## Download Source and Compile 下载源码并编译☣
