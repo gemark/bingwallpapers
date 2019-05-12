@@ -10,13 +10,10 @@ Microsoft Bing Wallpapers Crewler
 我的E-Mail📲: <golang83@outlook.com>、<gemarkcg@gmail.com> 🈶🈳💬
 
 ## Download MSI 下载安装包☢
-安装包下载：
+安装包下载：(推荐)
 [BingWallpapersSetup.exe](https://github.com/gemark/bingwallpapers/releases/download/v0.1.0/BingWallpapersSetup.exe) 
 
-安装请不要选择“安装到所有用户”
-安装需要注意，如果选择“安装到所有用户”，安装目录是C:\\Program Files(x86)\... 那么安装后，需要到安装目录去对BingWallpapers.exe程序文件修改属性，鼠标在文件上右键，点属性，然后“兼容性”选项卡，点击“更改所有用户设置”，勾选“以管理员身份运行此程序”，然后确定。否则无法正常运行。
-
-Zip打包下载：(推荐)
+Zip打包下载：
 [BingWallpapers_v1.0.zip](https://github.com/gemark/bingwallpapers/releases/download/v0.1.0/BingWallpapers_v1.0.zip)
 
 仅使用的话，建议下载Zip包直接使用程序。
@@ -73,7 +70,7 @@ BW=xxxxxxxxx 是BingWallpapers.exe的完整路径。
 
 ```shell
 @echo off
-set BW="C:\Program Files (x86)\微软必应每日壁纸\BingWallpapers.exe"
+set BW="D:\BingWallpapers\BingWallpapers.exe"
 schtasks /create /tn "必应壁纸自动获取A" /tr %BW% /sc daily /st 14:00:00 /ed 2025/05/02
 ```
 上面的批处理脚本的意思就是每天的14点就是pm2点，准时运行壁纸抓取程序，这个计划持续到2025年的5月2日，如果是英文操作系统，日期可能是dd/mm/yyyy也有可能是mm/dd/yyyy，如果日期格式不符，批处理程序会执行错误后会提示的，修改至对应的格式即可。
