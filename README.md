@@ -18,13 +18,13 @@ Bing Wallpapers Crewler
 
 
 ## Download MSI 下载安装包☢
-安装包下载：(推荐)
-[BingWallpapersSetup.exe](https://github.com/gemark/bingwallpapers/releases/download/v0.1.0/BingWallpapersSetup.exe) 
+安装包下载：
+[BingWallpapersSetup.exe](https://github.com/gemark/bingwallpapers/releases/download/v0.1.0/BingWallpapersSetup.exe) (推荐)
 
 Zip打包下载：
 [BingWallpapers_v1.0.zip](https://github.com/gemark/bingwallpapers/releases/download/v0.1.0/BingWallpapers_v1.0.zip)
 
-仅使用的话，建议下载Zip包直接使用程序。
+
 
 ## Download Source and Compile 下载源码并编译☣
 ### Download 下载：
