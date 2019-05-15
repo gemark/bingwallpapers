@@ -27,8 +27,10 @@ import (
 
 // BingCrewlerConfig 配置
 type BingCrewlerConfig struct {
-	Local bingWallpapers
-	Web   bingWallpapers
+	Local       bingWallpapers
+	Web         bingWallpapers
+	WinTaskName string
+	StartTime   string
 }
 
 // BingCrewlerConfig 字段
@@ -91,6 +93,13 @@ func init() {
 	conf.LoadConfig("./data/config.json", bingConfig)
 }
 
+// errorHandling 错误处理处
+func errorHandling(err error) {
+	if err != nil {
+		panic(err)
+	}
+}
+
 func main() {
 	defer func() {
 		// 处理异常 all panic in there
@@ -108,6 +117,30 @@ func main() {
 	start := time.Now()
 	// 检测配置文件中路径的合法性 check config file
 	checkConfigObject()
+
+	execPath, err := filepath.Abs(filepath.Dir(os.Args[0]))
+	execPath = execPath + "\\" + "BingWallpapers.exe"
+	if err != nil {
+		panic(err)
+	}
+
+	tso := bingTools.NewTaskSchedObjct()
+	_, stderr, err := tso.QueryTask(bingConfig.WinTaskName)
+	if err != nil {
+		panic(err.Error())
+	}
+	if stderr != "" {
+		stdout2, stderr2, err := tso.CreateTask(bingConfig.WinTaskName, execPath, bingConfig.StartTime)
+		if err != nil {
+			slog.ErrorOutput("CreateTaskError->" + err.Error())
+		}
+		if stderr2 != "" {
+			slog.ErrorOutput("CreateTask->" + stderr2)
+		}
+		if stdout2 != "" {
+			slog.InfoOutput("CreateTask->" + stdout2)
+		}
+	}
 
 	// 获取壁纸 get local and web wallpapers in microsoft bing
 	GetWallpapers()

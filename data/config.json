@@ -10,5 +10,7 @@
         "LocalPath" : "https://cn.bing.com/HPImageArchive.aspx?format=js&idx=${n}&n=1&nc=1361089515117&FORM=HYLH1",
         "FilesHash" : "./data/WebStoredFiles.json",
         "PowerOn" : true
-    }
+    },
+    "WinTaskName" : "bingwallpapers",
+    "StartTime" : "18:00:00"
 }
