@@ -14,7 +14,7 @@
  创建windows系统中的任务计划程序项目
 */
 
-package bingwallpapers
+package tools
 
 import (
 	"fmt"
