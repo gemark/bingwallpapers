@@ -1,5 +1,7 @@
 github.com/gemark/bingwallpapers/tools v0.0.0-20190512105506-a3d83d6ee776 h1:/ZJ1daffMp0iZo7bw+sB0AzEWPIRyiHLWJgjrmW+k/8=
 github.com/gemark/bingwallpapers/tools v0.0.0-20190512105506-a3d83d6ee776/go.mod h1:mgGGYpRVJsDMjbYqdD7tkw89JZ4+PgzFfJqY8gWmdjs=
+github.com/gemark/bingwallpapers/tools v0.0.0-20190516095827-b631ec00d05d h1:Rx8yApP1uaJyPCxqVNr088zppWAbJq4C2p37V1oO/3s=
+github.com/gemark/bingwallpapers/tools v0.0.0-20190516095827-b631ec00d05d/go.mod h1:mgGGYpRVJsDMjbYqdD7tkw89JZ4+PgzFfJqY8gWmdjs=
 golang.org/x/sys v0.0.0-20190516014833-cab07311ab81 h1:5Q88vZAfC0WB8T1GHRLttQaZdCNeQHM40n41gMUeFlI=
 golang.org/x/sys v0.0.0-20190516014833-cab07311ab81/go.mod h1:h1NjWce9XRLGQEsW7wpKNCjG9DtNlClVuFLEZdDNbEs=
 golang.org/x/text v0.3.2 h1:tW2bmiBqwgJj/UpqtC8EpXEZVYOwU0yG4iWbprSVAcs=
