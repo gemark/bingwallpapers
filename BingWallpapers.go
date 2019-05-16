@@ -1,10 +1,18 @@
-//	Program Name:	BingWallpapers
-//	Author:			https://github.com/gemark
-//	E-Mail:			golang83@outlook.com
-//	First Date:		2019/05/09 14:27
-//	Last Date:		2019/05/11 16:11
-//	Description:	获取win10系统中，Bing必应开机的每日壁纸
-//					获取cn.bing.com Image of day 系列壁纸
+/*
+   _____       __   __             _  __ 
+  ╱ ____|     |  ╲/   |           | |/ / 
+ | |  __  ___ |  ╲ /  | __  _ _ __| ' /  
+ | | |_ |/ _ ╲| |╲ /| |/ _`  | '__|  <   
+ | |__| |  __/| |   | (  _|  | |  | . ╲  
+  ╲_____|╲___ |_|   |_|╲__,_ |_|  |_|╲_╲ 
+ 可爱飞行猪❤: golang83@outlook.com  💯💯💯
+ Author Name: GeMarK.VK.Chow奥迪哥  🚗🔞🈲
+ Creaet Time: 2019/05/09 - 14:27:36
+ ProgramFile: BingWallpapers.go
+ Description:
+ 获取win10系统中，Bing必应开机的每日壁纸
+ 获取cn.bing.com Image of day 系列壁纸
+*/
 
 package main
 
@@ -27,8 +35,10 @@ import (
 
 // BingCrewlerConfig 配置
 type BingCrewlerConfig struct {
-	Local bingWallpapers
-	Web   bingWallpapers
+	Local       bingWallpapers
+	Web         bingWallpapers
+	WinTaskName string
+	StartTime   string
 }
 
 // BingCrewlerConfig 字段
@@ -91,6 +101,13 @@ func init() {
 	conf.LoadConfig("./data/config.json", bingConfig)
 }
 
+// errorHandling 错误处理处
+func errorHandling(err error) {
+	if err != nil {
+		panic(err)
+	}
+}
+
 func main() {
 	defer func() {
 		// 处理异常 all panic in there
@@ -108,6 +125,30 @@ func main() {
 	start := time.Now()
 	// 检测配置文件中路径的合法性 check config file
 	checkConfigObject()
+
+	execPath, err := filepath.Abs(filepath.Dir(os.Args[0]))
+	execPath = execPath + "\\" + "BingWallpapers.exe"
+	if err != nil {
+		panic(err)
+	}
+
+	tso := bingTools.NewTaskSchedObjct()
+	_, stderr, err := tso.QueryTask(bingConfig.WinTaskName)
+	if err != nil {
+		panic(err.Error())
+	}
+	if stderr != "" {
+		stdout2, stderr2, err := tso.CreateTask(bingConfig.WinTaskName, execPath, bingConfig.StartTime)
+		if err != nil {
+			slog.ErrorOutput("CreateTaskError->" + err.Error())
+		}
+		if stderr2 != "" {
+			slog.ErrorOutput("CreateTask->" + stderr2)
+		}
+		if stdout2 != "" {
+			slog.InfoOutput("CreateTask->" + stdout2)
+		}
+	}
 
 	// 获取壁纸 get local and web wallpapers in microsoft bing
 	GetWallpapers()
