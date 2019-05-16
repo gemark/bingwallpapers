@@ -1,10 +1,18 @@
-//	Program Name:	BingWallpapers
-//	Author:			https://github.com/gemark
-//	E-Mail:			golang83@outlook.com
-//	First Date:		2019/05/09 14:27
-//	Last Date:		2019/05/11 16:11
-//	Description:	获取win10系统中，Bing必应开机的每日壁纸
-//					获取cn.bing.com Image of day 系列壁纸
+/*
+   _____       __   __             _  __ 
+  ╱ ____|     |  ╲/   |           | |/ / 
+ | |  __  ___ |  ╲ /  | __  _ _ __| ' /  
+ | | |_ |/ _ ╲| |╲ /| |/ _`  | '__|  <   
+ | |__| |  __/| |   | (  _|  | |  | . ╲  
+  ╲_____|╲___ |_|   |_|╲__,_ |_|  |_|╲_╲ 
+ 可爱飞行猪❤: golang83@outlook.com  💯💯💯
+ Author Name: GeMarK.VK.Chow奥迪哥  🚗🔞🈲
+ Creaet Time: 2019/05/09 - 14:27:36
+ ProgramFile: BingWallpapers.go
+ Description:
+ 获取win10系统中，Bing必应开机的每日壁纸
+ 获取cn.bing.com Image of day 系列壁纸
+*/
 
 package main
 

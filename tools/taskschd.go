@@ -1,4 +1,20 @@
-package bingwallpapers
+/*
+   _____       __   __             _  __ 
+  ╱ ____|     |  ╲/   |           | |/ / 
+ | |  __  ___ |  ╲ /  | __  _ _ __| ' /  
+ | | |_ |/ _ ╲| |╲ /| |/ _`  | '__|  <   
+ | |__| |  __/| |   | (  _|  | |  | . ╲  
+  ╲_____|╲___ |_|   |_|╲__,_ |_|  |_|╲_╲ 
+ 可爱飞行猪❤: golang83@outlook.com  💯💯💯
+ Author Name: GeMarK.VK.Chow奥迪哥  🚗🔞🈲
+ Creaet Time: 2019/05/13 - 13:43:01
+ ProgramFile: taskschd.go
+ Description:
+ 这个程序主要是为bingwallpapers程序
+ 创建windows系统中的任务计划程序项目
+*/
+
+package tools
 
 import (
 	"bytes"
@@ -47,120 +63,6 @@ func (ts *TaskSchedObject) getDateTimeFormat() {
 	}
 	ts.TimeFormat = TimeFormat
 	ts.DateFormat = DateFormat
-}
-
-// DatesFormat 将日期格式化为系统的日期格式
-func (ts *TaskSchedObject) DatesFormat(year, month, day string) (string, error) {
-	// start0 := time.Now()
-	var (
-		yearlen        = len(year)
-		monthlen       = len(month)
-		daylen         = len(day)
-		err            error
-		msg            string
-		symbolStr      [4]bool
-		symbolPattern  = "[-a-z-A-Z`~!@#$%^&*()+=|{}':;',\\[\\].<>/?~！@#￥%……&*（）——+|{}【】‘；：”“’。，、？]"
-		numericPattern = `[\d+]`
-	)
-	// 数值字符串合法性验证
-	if (yearlen != 2 && yearlen != 4) || (monthlen > 2) || (daylen > 2) {
-		msg = `year format must "yy" or "yyyy" and month must M or MM and day must D or DD  .`
-		return "", errors.New(msg)
-	}
-	msg = `args: "year", "month", "day" string must numeric.`
-	symbolReg := regexp.MustCompile(symbolPattern)
-	numericReg := regexp.MustCompile(numericPattern)
-	symbolStr[0] = symbolReg.MatchString(year)
-	symbolStr[1] = symbolReg.MatchString(month)
-	symbolStr[2] = symbolReg.MatchString(day)
-	symbolStr[3] = !numericReg.MatchString(year)
-	for i := 0; i < len(symbolStr); i++ {
-		if symbolStr[i] {
-			return "", errors.New(msg)
-		}
-	}
-	// 对字符串进行转换，检测是否符合月/日的大小范围
-	intMonth, err := strconv.Atoi(month)
-	intDay, err := strconv.Atoi(day)
-	if err != nil {
-		panic(err.Error())
-	}
-	if intMonth > 12 || intMonth == 0 || intDay > 31 || intDay == 0 {
-		msg = "month or day number over range."
-		panic(errors.New(msg))
-	}
-	// 将日期字符串与系统的日期格式进行匹配处理
-	var (
-		datef   string
-		dateSep string
-		result  string
-	)
-
-	datef = ts.DateFormat
-	reg := regexp.MustCompile("[/.-]")
-	sepstr := reg.FindAllString(datef, 1)
-	if len(sepstr) < 1 {
-		return "", errors.New("unknow date separator")
-	}
-	switch sepstr[0] {
-	case "/":
-		dateSep = "/"
-	case ".":
-		dateSep = "."
-	case "-":
-		dateSep = "-"
-	}
-	dateElems := strings.Split(datef, dateSep)
-	mmdd := func(elem string) {
-		switch elem {
-		case "M":
-			// yyyy or yy/M/d
-			if len(month) > 1 {
-				month = month[1:]
-			}
-			if len(day) > 1 {
-				day = day[1:]
-			}
-		case "MM":
-			// yyyy or yy/MM/dd
-			if len(month) == 1 {
-				month = "0" + month
-			}
-			if len(day) == 1 {
-				day = "0" + day
-			}
-		case "yy":
-			if len(year) > 2 {
-				year = year[2:]
-			}
-		}
-	}
-	if dateElems != nil {
-		switch dateElems[0] {
-		case "M":
-			// M/d/yy or yyyy
-			mmdd(dateElems[0])
-			mmdd(dateElems[2])
-			result = month + dateSep + day + dateSep + year
-		case "MM":
-			// MM/dd/yy or yyyy
-			mmdd(dateElems[0])
-			mmdd(dateElems[2])
-			result = month + dateSep + day + dateSep + year
-		case "yy":
-			// yy/M or MM/d or dd
-			mmdd(dateElems[0])
-			mmdd(dateElems[1])
-			result = year + dateSep + month + dateSep + day
-		case "yyyy":
-			// yyyy/M or MM/d or dd
-			mmdd(dateElems[1])
-			result = year + dateSep + month + dateSep + day
-		}
-	}
-	// end0 := time.Now().Sub(start0)
-	// fmt.Println(end0)
-	return result, nil
 }
 
 // CreateTask 创建任务计划
@@ -225,4 +127,39 @@ func convertGBK2Str(gbkStr string) string {
 		panic(err.Error())
 	}
 	return ret
+}
+
+func errorHandle(err error){
+	if err != nil {
+		panic(err)
+	}
+}
+
+func lengthVerified(numStr string, start, end int) bool {
+	if numStr == "" || start < 0 || end > 9 {
+		return false
+	}
+	length := len(numStr)
+	if length < start && length > end {
+		return false
+	} 
+	return true
+}
+
+func numericVerified(numStr []string) bool  {
+	var (
+		symbolPattern  = "[-a-z-A-Z`~!@#$%^&*()+=|{}':;',\\[\\].<>/?~！@#￥%……&*（）——+|{}【】‘；：”“’。，、？]"
+		numericPattern = `[\d+]`
+	)
+	numericReg1 := regexp.MustCompile(symbolPattern)
+	numericReg2 := regexp.MustCompile(numericPattern)
+	for _, v := range numStr {
+		if numericReg1.MatchString(v){
+			return false
+		}
+		if !numericReg2.MatchString(v){
+			return false
+		}
+	}
+	return true
 }

@@ -1,11 +1,19 @@
-//	Program Name:	BingWallpapers
-//	Author:			https://github.com/gemark
-//	E-Mail:			golang83@outlook.com
-//	First Date:		2019/05/09 09:32
-//	Last Date:		2019/05/10 23:17
-//	Description:	用于必应壁纸程序的配置输入输出
+/*
+   _____       __   __             _  __ 
+  ╱ ____|     |  ╲/   |           | |/ / 
+ | |  __  ___ |  ╲ /  | __  _ _ __| ' /  
+ | | |_ |/ _ ╲| |╲ /| |/ _`  | '__|  <   
+ | |__| |  __/| |   | (  _|  | |  | . ╲  
+  ╲_____|╲___ |_|   |_|╲__,_ |_|  |_|╲_╲ 
+ 可爱飞行猪❤: golang83@outlook.com  💯💯💯
+ Author Name: GeMarK.VK.Chow奥迪哥  🚗🔞🈲
+ Creaet Time: 2019/05/09 - 09:32:25
+ ProgramFile: images.go
+ Description:
+ 用于必应壁纸程序的配置输入输出
+*/
 
-package bingwallpapers
+package tools
 
 import (
 	"image"
