@@ -1,4 +1,4 @@
-package bingwallpapers
+package tools
 
 import (
 	"encoding/json"

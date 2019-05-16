@@ -24,7 +24,7 @@ import (
 	"strconv"
 	"strings"
 
-	registry "github.com/golang/sys/windows/registry"
+	registry "golang.org/x/sys/windows/registry"
 	"golang.org/x/text/encoding/simplifiedchinese"
 )
 
