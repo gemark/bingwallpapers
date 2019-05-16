@@ -56,25 +56,9 @@ func TestTaskSchdQuery(t *testing.T) {
 }
 
 func Test_DateFormat(t *testing.T) {
-	var (
-		year  string
-		month string
-		day   string
-	)
 	defer func() {
 		if err := recover(); err != nil {
 			log.Fatalln(err)
 		}
 	}()
-
-	// start := time.Now()
-	tso := NewTaskSchedObjct()
-	year, month, day = "2019", "05", "01"
-	date, err := tso.DatesFormat(year, month, day)
-	if err != nil {
-		panic(err.Error())
-	}
-	// end := time.Now().Sub(start)
-	// fmt.Println(end)
-	fmt.Println(date)
 }
