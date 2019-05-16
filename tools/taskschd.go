@@ -21,7 +21,6 @@ import (
 	"errors"
 	"os/exec"
 	"regexp"
-	"strconv"
 	"strings"
 
 	registry "golang.org/x/sys/windows/registry"
